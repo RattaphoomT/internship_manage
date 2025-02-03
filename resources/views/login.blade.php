@@ -24,7 +24,7 @@
         <!-- /Logo -->
 
         <div class="card-body mt-2">
-          <h4 class="mb-2">Welcome to {{config('variables.templateName')}}! 👋</h4>
+          <h4 class="mb-2">Welcome to Rattaphoom 👋</h4>
           <p class="mb-4">Please sign-in to your account and start the adventure</p>
 
           <form id="formAuthentication" class="mb-3" action="{{url('/')}}" method="GET">
@@ -50,7 +50,7 @@
                   Remember Me
                 </label>
               </div>
-              <a href="{{url('auth/forgot-password-basic')}}" class="float-end mb-1">
+              <a href="#" class="float-end mb-1">
                 <span>Forgot Password?</span>
               </a>
             </div>
@@ -61,7 +61,7 @@
 
           <p class="text-center">
             <span>New on our platform?</span>
-            <a href="{{url('auth/register-basic')}}">
+            <a href="#">
               <span>Create an account</span>
             </a>
           </p>
