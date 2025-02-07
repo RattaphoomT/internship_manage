@@ -274,6 +274,13 @@
               </a>
             </li>
 
+            <li class="menu-item">
+              <a href="icons-boxicons.html" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-book-bookmark"></i>
+                <div class="text-truncate" data-i18n="Boxicons">ข้อปฏิบัติในการฝึกงาน</div>
+              </a>
+            </li>
+
             <!-- Admin menu -->
             <li class="menu-header small text-uppercase"><span class="menu-header-text">ผู้ดูเเลเเละพัฒนาระบบ</span></li>
             
