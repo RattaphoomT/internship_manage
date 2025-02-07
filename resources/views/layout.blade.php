@@ -148,7 +148,7 @@
                 <a
                   href="#"
                   class="menu-link">
-                  <i class="menu-icon tf-icons bx bx-chat"></i>
+                  <i class="menu-icon tf-icons bx bx-tachometer"></i>
                   <div class="text-truncate" data-i18n="Chat">ภาพรวมของระบบ</div>
                 </a>
             </li>
@@ -157,7 +157,7 @@
               <a
                 href="#"
                 class="menu-link">
-                <i class="menu-icon tf-icons bx bx-chat"></i>
+                <i class="menu-icon tf-icons bx bx-user"></i>
                 <div class="text-truncate" data-i18n="Chat">จัดการบัญชีนักศึกษา</div>
               </a>
             </li>
@@ -165,7 +165,7 @@
             <!-- จัดการสถาณะเอกสารนักศึกษา -->
             <li class="menu-item open">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                <i class="menu-icon tf-icons bx bx-spreadsheet"></i>
                 <div class="text-truncate" data-i18n="Account Settings">จัดการเอกสาร</div>
               </a>
 
@@ -250,7 +250,7 @@
                 <a
                   href="#"
                   class="menu-link">
-                  <i class="menu-icon tf-icons bx bx-chat"></i>
+                  <i class="menu-icon tf-icons bx bx-buildings"></i>
                   <div class="text-truncate" data-i18n="Chat">เพิ่มบริษัทฝึกงาน</div>
                 </a>
             </li>
@@ -262,104 +262,66 @@
             <!-- Cards -->
             <li class="menu-item">
               <a href="#" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <i class="menu-icon tf-icons bx bx-time-five"></i>
                 <div class="text-truncate" data-i18n="Basic">ประวัติการสมัคร</div>
               </a>
             </li>
         
             <li class="menu-item">
               <a href="icons-boxicons.html" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-crown"></i>
+                <i class="menu-icon tf-icons bx bx-buildings"></i>
                 <div class="text-truncate" data-i18n="Boxicons">รายชื่อบริษัทที่เปิดรับ</div>
               </a>
             </li>
 
-            <!-- Forms & Tables -->
-            <li class="menu-header small text-uppercase"><span class="menu-header-text">Forms &amp; Tables</span></li>
-            <!-- Forms -->
+            <!-- Admin menu -->
+            <li class="menu-header small text-uppercase"><span class="menu-header-text">ผู้ดูเเลเเละพัฒนาระบบ</span></li>
+            
+
+            
             <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-detail"></i>
-                <div class="text-truncate" data-i18n="Form Elements">Form Elements</div>
-              </a>
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="forms-basic-inputs.html" class="menu-link">
-                    <div class="text-truncate" data-i18n="Basic Inputs">Basic Inputs</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="forms-input-groups.html" class="menu-link">
-                    <div class="text-truncate" data-i18n="Input groups">Input groups</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-detail"></i>
-                <div class="text-truncate" data-i18n="Form Layouts">Form Layouts</div>
-              </a>
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="form-layouts-vertical.html" class="menu-link">
-                    <div class="text-truncate" data-i18n="Vertical Form">Vertical Form</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="form-layouts-horizontal.html" class="menu-link">
-                    <div class="text-truncate" data-i18n="Horizontal Form">Horizontal Form</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <!-- Form Validation -->
-            <li class="menu-item">
-              <a
-                href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/form-validation.html"
-                target="_blank"
-                class="menu-link">
-                <i class="menu-icon tf-icons bx bx-list-check"></i>
-                <div class="text-truncate" data-i18n="Form Validation">Form Validation</div>
-                <div class="badge rounded-pill bg-label-primary text-uppercase fs-tiny ms-auto">Pro</div>
+              <a href="#" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-tachometer"></i>
+                <div class="text-truncate" data-i18n="Tables">รายงานภาพรวม</div>
               </a>
             </li>
-            <!-- Tables -->
+
             <li class="menu-item">
-              <a href="tables-basic.html" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-table"></i>
-                <div class="text-truncate" data-i18n="Tables">Tables</div>
+              <a href="#" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-user"></i>
+                <div class="text-truncate" data-i18n="Tables">จัดการบัญชีผู้ใช้</div>
               </a>
             </li>
-            <!-- Data Tables -->
+
             <li class="menu-item">
-              <a
-                href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/tables-datatables-basic.html"
-                target="_blank"
-                class="menu-link">
-                <i class="menu-icon tf-icons bx bx-grid"></i>
-                <div class="text-truncate" data-i18n="Datatables">Datatables</div>
-                <div class="badge rounded-pill bg-label-primary text-uppercase fs-tiny ms-auto">Pro</div>
+              <a href="#" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-time-five"></i>
+                <div class="text-truncate" data-i18n="Tables">ประวัติการทำรายการ</div>
               </a>
             </li>
+
+            <!-- End Admin menu -->
+
             <!-- Misc -->
-            <li class="menu-header small text-uppercase"><span class="menu-header-text">Misc</span></li>
+            <li class="menu-header small text-uppercase"><span class="menu-header-text">เเจ้งปัญหาการใช้งาน</span></li>
+
             <li class="menu-item">
               <a
-                href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
+                href="#"
                 target="_blank"
                 class="menu-link">
                 <i class="menu-icon tf-icons bx bx-support"></i>
-                <div class="text-truncate" data-i18n="Support">Support</div>
+                <div class="text-truncate" data-i18n="Support">ติดต่อเจ้าหน้าที่</div>
               </a>
             </li>
+
             <li class="menu-item">
               <a
-                href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/documentation/"
+                href="#"
                 target="_blank"
                 class="menu-link">
                 <i class="menu-icon tf-icons bx bx-file"></i>
-                <div class="text-truncate" data-i18n="Documentation">Documentation</div>
+                <div class="text-truncate" data-i18n="Documentation">ข้อเสนอเเนะ</div>
               </a>
             </li>
           </ul>
@@ -425,8 +387,8 @@
                             </div>
                           </div>
                           <div class="flex-grow-1">
-                            <h6 class="mb-0">John Doe</h6>
-                            <small class="text-muted">Admin</small>
+                            <h6 class="mb-0">นายรัฐภูมิ ธนาโชติอัครโภคิน</h6>
+                            <small class="text-muted">พนักงาน</small>
                           </div>
                         </div>
                       </a>
@@ -458,7 +420,7 @@
                     </li>
                     <li>
                       <a class="dropdown-item" href="javascript:void(0);">
-                        <i class="bx bx-power-off bx-md me-3"></i><span>ออกจากระบบ</span>
+                        <i class="bx bx-power-off bx-md me-3 text-danger"></i><span class="text-danger">ออกจากระบบ</span>
                       </a>
                     </li>
                   </ul>
@@ -479,14 +441,6 @@
               @yield('Content')
 
               <div class="layout-demo-wrapper">
-                <div class="layout-demo-placeholder">
-                  <img
-                    src="../assets/img/layouts/layout-fluid-light.png"
-                    class="img-fluid"
-                    alt="Layout fluid"
-                    data-app-light-img="layouts/layout-fluid-light.png"
-                    data-app-dark-img="layouts/layout-fluid-dark.png" />
-                </div>
                 <div class="layout-demo-info">
                   <h4>Layout fluid</h4>
                   <p>Fluid layout sets a <code>100% width</code> at each responsive breakpoint.</p>
