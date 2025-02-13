@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Middleware;
-
+use Illuminate\Support\Facades\DB;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -10,6 +10,7 @@ class PersonnelMiddleware
 {
     public function handle(Request $request, Closure $next)
     {
+
         if (Auth::check() && Auth::user()->user_role_iduser_role == 1) {
             return $next($request);
         }

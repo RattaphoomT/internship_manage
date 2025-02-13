@@ -17,12 +17,12 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'user_id' => 'required',
+            'Stu_id' => 'required',
             'password' => 'required',
         ]);
 
         // ใช้ Stu_id แทน user_id
-        $user = Users::where('Stu_id', $request->user_id)->first();
+        $user = Users::where('Stu_id', $request->Stu_id)->first();
 
         if ($user && Hash::check($request->password, $user->password)) {
             Auth::login($user);
@@ -39,7 +39,7 @@ class LoginController extends Controller
             }
         }
 
-        return back()->withErrors(['user_id' => 'Invalid credentials.']);
+        return back()->withErrors(['user_id' => 'ไม่พบผู้ใช้งานในฐานข้อมูล']);
     }
 
     public function logout()

@@ -72,12 +72,12 @@
               <form id="formAuthentication" class="mb-6" action="{{ route('login') }}" method="POST">
                 @csrf
                 <div class="mb-6">
-                    <label for="user_id" class="form-label">รหัสนักศึกษา</label>
+                    <label for="Stu_id" class="form-label">รหัสนักศึกษา</label>
                     <input
                         type="text"
                         class="form-control"
-                        id="user_id"
-                        name="email"
+                        id="Stu_id"
+                        name="Stu_id"
                         placeholder="กรุณาใส่รหัสนักศึกษา"
                         required
                         autofocus
@@ -181,7 +181,7 @@
             @if($errors->any())
                 Swal.fire({
                     icon: 'warning',
-                    title: 'ไม่พบข้อมูลผู้ใช้ในระบบ!',
+                    title: 'ไม่พบข้อมูล!',
                     text: '{{ $errors->first() }}',
                     confirmButtonColor: '#f39c12',
                     confirmButtonText: 'ตกลง'
