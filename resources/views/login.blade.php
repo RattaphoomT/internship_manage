@@ -69,48 +69,53 @@
               <h4 class="mb-1">ยินดีต้อนรับ 👋</h4>
               <p class="mb-6">สามารถใส่รหัสนักศึกษาเเละ รหัสผ่านเป็นเลขบัตรประชาชนเพื่อเข้าสู่ระบบ </p>
 
-              <form id="formAuthentication" class="mb-6" action="#">
+              <form id="formAuthentication" class="mb-6" action="{{ route('login') }}" method="POST">
                 @csrf
                 <div class="mb-6">
-                  <label for="email" class="form-label">รหัสนักศึกษา</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="email"
-                    name="email-username"
-                    placeholder="กรุณาใส่รหัสนักศึกษา"
-                    autofocus />
-                </div>
-
-                <div class="mb-6 form-password-toggle">
-                  <label class="form-label" for="password">รหัสผ่าน</label>
-                  <div class="input-group input-group-merge">
+                    <label for="user_id" class="form-label">รหัสนักศึกษา</label>
                     <input
-                      type="password"
-                      id="password"
-                      class="form-control"
-                      name="password"
-                      placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                      aria-describedby="password" />
-                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
-                  </div>
+                        type="text"
+                        class="form-control"
+                        id="user_id"
+                        name="email"
+                        placeholder="กรุณาใส่รหัสนักศึกษา"
+                        required
+                        autofocus
+                    />
                 </div>
-
-                <div class="mb-8">
-                  <div class="d-flex justify-content-between mt-8">
-                    <div class="form-check mb-0 ms-2">
-                      <input class="form-check-input" type="checkbox" id="remember-me" />
-                      <label class="form-check-label" for="remember-me"> บักทึกการเข้าสู่ระบบ </label>
+            
+                <div class="mb-6 form-password-toggle">
+                    <label class="form-label" for="password">รหัสผ่าน</label>
+                    <div class="input-group input-group-merge">
+                        <input
+                            type="password"
+                            id="password"
+                            class="form-control"
+                            name="password"
+                            placeholder="กรุณาใส่รหัสผ่าน"
+                            required
+                        />
+                        <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                     </div>
-                    <a href="auth-forgot-password-basic.html">
-                      <span>ลืมรหัสผ่าน ?</span>
-                    </a>
-                  </div>
                 </div>
+            
+                <div class="mb-8">
+                    <div class="d-flex justify-content-between mt-8">
+                        <div class="form-check mb-0 ms-2">
+                            <input class="form-check-input" type="checkbox" id="remember-me" name="remember" />
+                            <label class="form-check-label" for="remember-me"> บันทึกการเข้าสู่ระบบ </label>
+                        </div>
+                        <a href="#">
+                            <span>ลืมรหัสผ่าน ?</span>
+                        </a>
+                    </div>
+                </div>
+                
                 <div class="mb-6">
-                  <button class="btn btn-primary d-grid w-100" type="submit">เข้าสู่ระบบ</button>
+                    <button class="btn btn-primary d-grid w-100" type="submit">เข้าสู่ระบบ</button>
                 </div>
               </form>
+            
 
               <p class="text-center">
                 <span>ยังไม่มีบัญชีใช่ไหม ?</span>
@@ -146,6 +151,45 @@
 
     <!-- Place this tag before closing body tag for github widget button. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    {{-- SweetAlert --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            @if(session('success'))
+                Swal.fire({
+                    icon: 'success',
+                    title: 'เข้าสู่ระบบสำเร็จ!',
+                    text: '{{ session("success") }}',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'ตกลง'
+                });
+            @endif
+    
+            @if(session('error'))
+                Swal.fire({
+                    icon: 'error',
+                    title: 'เกิดข้อผิดพลาด',
+                    text: '{{ session("error") }}',
+                    confirmButtonColor: '#d33',
+                    confirmButtonText: 'ตกลง'
+                });
+            @endif
+    
+            @if($errors->any())
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'ไม่พบข้อมูลผู้ใช้ในระบบ!',
+                    text: '{{ $errors->first() }}',
+                    confirmButtonColor: '#f39c12',
+                    confirmButtonText: 'ตกลง'
+                });
+            @endif
+        });
+    </script>
+  
 
   </body>
 </html>

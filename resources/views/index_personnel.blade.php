@@ -31,11 +31,12 @@
     
           <div class="card-body">
             <div class="card-title d-flex align-items-start justify-content-between mb-4">
+                <i class="bx bx-building-house bx-lg"></i>
               <div class="avatar flex-shrink-0">
-                <img
+                {{-- <img
                   src="../assets/img/icons/unicons/chart-success.png"
                   alt="chart success"
-                  class="rounded" />
+                  class="rounded" /> --}}
               </div>
             </div>
             <p class="mb-1">นักศึกษาทั้งหมด</p>

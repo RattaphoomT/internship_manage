@@ -15,7 +15,7 @@ class Users extends Model
     public $incrementing = false; // เนื่องจากใช้ VARCHAR เป็น Primary Key
 
     protected $fillable = [
-        'CurriculumID', 'Name', 'Lastname', 'Date', 'Tel', 'Ethnicity', 
+        'Stu_id','CurriculumID', 'Name', 'Lastname', 'Date', 'Tel', 'Ethnicity', 
         'Nationality', 'Religion', 'Address', 'Grade', 'Email', 'Treatment', 
         'Skil', 'Reward', 'password', 'user_role_iduser_role'
     ];
