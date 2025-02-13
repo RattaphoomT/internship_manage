@@ -10,3 +10,7 @@ Route::get('/layout', function () {
     return view('layout');
 });
 
+Route::get('/index_personnel', function () {
+    return view('index_personnel');
+})->name('personnel');
+

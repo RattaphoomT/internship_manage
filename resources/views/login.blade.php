@@ -69,7 +69,8 @@
               <h4 class="mb-1">ยินดีต้อนรับ 👋</h4>
               <p class="mb-6">สามารถใส่รหัสนักศึกษาเเละ รหัสผ่านเป็นเลขบัตรประชาชนเพื่อเข้าสู่ระบบ </p>
 
-              <form id="formAuthentication" class="mb-6" action="index.html">
+              <form id="formAuthentication" class="mb-6" action="#">
+                @csrf
                 <div class="mb-6">
                   <label for="email" class="form-label">รหัสนักศึกษา</label>
                   <input
@@ -80,6 +81,7 @@
                     placeholder="กรุณาใส่รหัสนักศึกษา"
                     autofocus />
                 </div>
+
                 <div class="mb-6 form-password-toggle">
                   <label class="form-label" for="password">รหัสผ่าน</label>
                   <div class="input-group input-group-merge">
@@ -93,6 +95,7 @@
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                   </div>
                 </div>
+
                 <div class="mb-8">
                   <div class="d-flex justify-content-between mt-8">
                     <div class="form-check mb-0 ms-2">

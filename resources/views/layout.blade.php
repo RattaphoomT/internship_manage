@@ -144,12 +144,12 @@
             </li> --}}
 
             {{-- staff menu --}}
-            <li class="menu-item">
+            <li class="menu-item {{ request()->routeIs('personnel') ? 'active' : '' }} ">
                 <a
-                  href="#"
+                  href="{{ route('personnel') }}"
                   class="menu-link">
                   <i class="menu-icon tf-icons bx bx-tachometer"></i>
-                  <div class="text-truncate" data-i18n="Chat">ภาพรวมของระบบ</div>
+                  <div class="text-truncate" data-i18n="ภาพรวมของระบบ">ภาพรวมของระบบ</div>
                 </a>
             </li>
 
@@ -193,6 +193,12 @@
                         <a href="pages-account-settings-connections.html" class="menu-link">
                         <div class="text-truncate" data-i18n="Connections">เอกสารตรวจสอบไม่ผ่าน</div>
                         </a>
+                    </li>
+
+                    <li class="menu-item">
+                      <a href="pages-account-settings-connections.html" class="menu-link">
+                      <div class="text-truncate" data-i18n="Connections">เเก้ไขเอกสารเเล้วรอตรวจสอบ</div>
+                      </a>
                     </li>
 
                     <li class="menu-item">
@@ -445,15 +451,11 @@
 
             <div class="container-fluid flex-grow-1 container-p-y">
               <!-- Layout Demo -->
+
+              @yield('breadcrumb')
               @yield('Content')
 
-              <div class="layout-demo-wrapper">
-                <div class="layout-demo-info">
-                  <h4>Layout fluid</h4>
-                  <p>Fluid layout sets a <code>100% width</code> at each responsive breakpoint.</p>
-                </div>
-              </div>
-              <!--/ Layout Demo -->
+              
             </div>
             <!-- / Content -->
 
