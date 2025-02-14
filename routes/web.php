@@ -5,17 +5,12 @@ use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Users;
 
-use App\Http\Middleware\PersonnelMiddleware;
 
+Route::get('/', [LoginController::class, 'showLoginForm'])->name('first');
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-
-
-Route::middleware(['web'])->group(function () {
-    Route::get('/', [LoginController::class, 'showLoginForm'])->name('first');
-    Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-    Route::post('/login', [LoginController::class, 'login']);
-    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-});
 
 // Route::get('/layout', function () {
 //     return view('layout');
@@ -29,7 +24,16 @@ Route::get('/index_personnel', function () {
 
 
 
-Route::middleware([PersonnelMiddleware::class])->group(function () {
+// Route::middleware([PersonnelMiddleware::class])->group(function () {
+
+//     Route::get('/personnel/index', function () {
+//         return view('index_personnel');
+//     })->name('personnel.index');
+
+// });
+
+
+Route::middleware(['Personnel'])->group(function () {
 
     Route::get('/personnel/index', function () {
         return view('index_personnel');
