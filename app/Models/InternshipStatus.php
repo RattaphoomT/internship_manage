@@ -17,11 +17,6 @@ class InternshipStatus extends Model
 
     public function internships()
     {
-        return $this->hasMany(Internship::class, 'StatusCode');
-    }
-
-    public function history()
-    {
-        return $this->hasMany(InternshipHistory::class, 'internshipstatus_StatusCode');
+        return $this->hasMany(Internship::class, 'internshipstatus_StatusCode', 'StatusCode');
     }
 }

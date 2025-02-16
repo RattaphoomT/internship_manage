@@ -13,12 +13,10 @@ class Document extends Model
     protected $primaryKey = 'DocId';
     public $timestamps = true;
 
-    protected $fillable = [
-        'FPath', 'FPath2', 'internship_InternshipCode'
-    ];
+    protected $fillable = ['FPath', 'FPath2', 'internship_InternshipCode'];
 
     public function internship()
     {
-        return $this->belongsTo(Internship::class, 'internship_InternshipCode');
+        return $this->belongsTo(Internship::class, 'internship_InternshipCode', 'InternshipCode');
     }
 }

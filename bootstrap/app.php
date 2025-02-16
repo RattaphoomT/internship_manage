@@ -17,7 +17,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->group('web', [
             \Illuminate\Session\Middleware\StartSession::class, 
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \Illuminate\Auth\Middleware\Authenticate::class, // ✅ เพิ่ม Authentication Middleware
+            // \Illuminate\Auth\Middleware\Authenticate::class, // ✅ เพิ่ม Authentication Middleware
         ]);
 
         // ✅ ใช้ alias() สำหรับ Middleware ที่กำหนดเอง

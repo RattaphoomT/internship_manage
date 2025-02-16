@@ -26,7 +26,6 @@ class LoginController extends Controller
 
         if ($user && Hash::check($request->password, $user->password)) {
             Auth::login($user);
-            session()->regenerate(); // ✅ ป้องกัน Session Fixation Attack
 
             // ตรวจสอบ user_role_id
             switch ($user->user_role_iduser_role) { 

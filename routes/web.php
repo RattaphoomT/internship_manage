@@ -23,10 +23,12 @@ Route::get('/index_personnel', function () {
 })->name('personnel');
 
 
-Route::middleware(['web', 'personnel'])->group(function () {
+Route::middleware(['web','personnel'])->group(function () {
+
     Route::get('/personnel/index', function () {
         return view('index_personnel');
     })->name('personnel.index');
+
 });
 
 

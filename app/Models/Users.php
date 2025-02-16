@@ -9,25 +9,24 @@ class Users extends Authenticatable
 {
     use HasFactory;
 
-    protected $guard = 'web';
     protected $table = 'user';
     protected $primaryKey = 'Stu_id';
     public $timestamps = true;
-    public $incrementing = false; // เนื่องจากใช้ VARCHAR เป็น Primary Key
 
     protected $fillable = [
-        'Stu_id','CurriculumID', 'Name', 'Lastname', 'Date', 'Tel', 'Ethnicity', 
-        'Nationality', 'Religion', 'Address', 'Grade', 'Email', 'Treatment', 
+        'Stu_id','CurriculumID', 'Name', 'Lastname', 'birthday', 'Tel', 'Ethnicity',
+        'Nationality', 'Religion', 'Address', 'Grade', 'Email', 'Treatment',
         'Skil', 'Reward', 'password', 'user_role_iduser_role'
     ];
 
-    public function role()
+    public function userRole()
     {
-        return $this->belongsTo(UserRole::class, 'user_role_iduser_role');
+        return $this->belongsTo(UserRole::class, 'user_role_iduser_role', 'iduser_role');
     }
 
     public function internships()
     {
-        return $this->hasMany(Internship::class, 'user_Stu_id');
+        return $this->hasMany(Internship::class, 'user_Stu_id', 'Stu_id');
     }
 }
+

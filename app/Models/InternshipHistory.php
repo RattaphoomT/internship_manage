@@ -11,25 +11,24 @@ class InternshipHistory extends Model
 
     protected $table = 'internshiphistory';
     protected $primaryKey = 'InternshipHistoryId';
-    public $timestamps = false;
+    public $timestamps = true;
 
     protected $fillable = [
-        'Datetime', 'Detail', 'internshipstatus_StatusCode', 
-        'internship_InternshipCode', 'user_Stu_id'
+        'Datetime', 'Detail', 'user_Stu_id', 'internshipstatus_StatusCode', 'internship_InternshipCode'
     ];
 
-    public function status()
+    public function user()
     {
-        return $this->belongsTo(InternshipStatus::class, 'internshipstatus_StatusCode');
+        return $this->belongsTo(User::class, 'user_Stu_id', 'Stu_id');
     }
 
     public function internship()
     {
-        return $this->belongsTo(Internship::class, 'internship_InternshipCode');
+        return $this->belongsTo(Internship::class, 'internship_InternshipCode', 'InternshipCode');
     }
 
-    public function user()
+    public function status()
     {
-        return $this->belongsTo(Users::class, 'user_Stu_id');
+        return $this->belongsTo(InternshipStatus::class, 'internshipstatus_StatusCode', 'StatusCode');
     }
 }

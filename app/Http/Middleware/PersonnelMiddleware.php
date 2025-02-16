@@ -11,9 +11,8 @@ class PersonnelMiddleware
 {
     public function handle(Request $request, Closure $next)
     {
-        dd(Auth::guard('web')->user());
 
-        if (Auth::guard('web')->check() && Auth::guard('web')->user()->user_role_iduser_role == 1) {
+        if (Auth::check() && Auth::user()->user_role_iduser_role == 1) {
             return $next($request);
         }
 

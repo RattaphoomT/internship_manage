@@ -15,26 +15,31 @@ class Internship extends Model
 
     protected $fillable = [
         'CompanyId', 'DateSubmit', 'StartDate', 'EndDate', 'Position', 
-        'StatusCode', 'DeliveryOption', 'user_Stu_id'
+        'DeliveryOption', 'user_Stu_id', 'company_CompanyId', 'internshipstatus_StatusCode'
     ];
-
-    public function company()
-    {
-        return $this->belongsTo(Company::class, 'CompanyId');
-    }
 
     public function user()
     {
-        return $this->belongsTo(Users::class, 'user_Stu_id');
+        return $this->belongsTo(User::class, 'user_Stu_id', 'Stu_id');
     }
 
-    public function documents()
+    public function company()
     {
-        return $this->hasMany(Document::class, 'internship_InternshipCode');
+        return $this->belongsTo(Company::class, 'company_CompanyId', 'CompanyId');
     }
 
     public function status()
     {
-        return $this->belongsTo(InternshipStatus::class, 'StatusCode');
+        return $this->belongsTo(InternshipStatus::class, 'internshipstatus_StatusCode', 'StatusCode');
+    }
+
+    public function documents()
+    {
+        return $this->hasMany(Document::class, 'internship_InternshipCode', 'InternshipCode');
+    }
+
+    public function history()
+    {
+        return $this->hasMany(InternshipHistory::class, 'internship_InternshipCode', 'InternshipCode');
     }
 }
