@@ -4,15 +4,14 @@ namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
 class Users extends Authenticatable
 {
     use HasFactory;
 
+    protected $guard = 'web';
     protected $table = 'user';
     protected $primaryKey = 'Stu_id';
-    protected $keyType = 'string'; // เพิ่มบรรทัดนี้
     public $timestamps = true;
     public $incrementing = false; // เนื่องจากใช้ VARCHAR เป็น Primary Key
 
