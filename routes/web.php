@@ -23,8 +23,14 @@ Route::get('/index_personnel', function () {
 })->name('personnel');
 
 
+Route::middleware(['web', 'Personnel'])->group(function () {
+    Route::get('/personnel/index', function () {
+        return view('index_personnel');
+    })->name('personnel.index');
+});
 
-// Route::middleware([PersonnelMiddleware::class])->group(function () {
+
+// Route::middleware(['Personnel'])->group(function () {
 
 //     Route::get('/personnel/index', function () {
 //         return view('index_personnel');
@@ -33,13 +39,9 @@ Route::get('/index_personnel', function () {
 // });
 
 
-Route::middleware(['Personnel'])->group(function () {
-
-    Route::get('/personnel/index', function () {
-        return view('index_personnel');
-    })->name('personnel.index');
-
-});
+// Route::get('/personnel/index', function () {
+//     return view('index_personnel');
+//  })->name('personnel.index')->middleware('Personnel');
 
 
 Route::get('/create-mock-user', function () {

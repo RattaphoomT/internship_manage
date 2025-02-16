@@ -13,8 +13,13 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
 
-        $middleware->appendToGroup('Personnel', [
-            PersonnelMiddleware::class,
+        $middleware->group('web', [
+            \Illuminate\Session\Middleware\StartSession::class, // โหลด Session ก่อน
+            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+        ]);
+    
+        $middleware->alias([
+            'Personnel' => \App\Http\Middleware\PersonnelMiddleware::class,
         ]);
 
     })
