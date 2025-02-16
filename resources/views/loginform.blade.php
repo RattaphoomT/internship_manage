@@ -72,12 +72,12 @@
               <form id="formAuthentication" class="mb-6" action="{{ route('login') }}" method="POST">
                 @csrf
                 <div class="mb-6">
-                    <label for="Stu_id" class="form-label">รหัสนักศึกษา</label>
+                    <label for="usernumber" class="form-label">รหัสนักศึกษา</label>
                     <input
                         type="text"
                         class="form-control"
-                        id="Stu_id"
-                        name="Stu_id"
+                        id="usernumber"
+                        name="usernumber"
                         placeholder="กรุณาใส่รหัสนักศึกษา"
                         required
                         autofocus
