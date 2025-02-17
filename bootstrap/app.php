@@ -13,16 +13,16 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
 
-        // ✅ ใช้ group() สำหรับ Middleware
+       
         $middleware->group('web', [
             \Illuminate\Session\Middleware\StartSession::class, 
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            // \Illuminate\Auth\Middleware\Authenticate::class, // ✅ เพิ่ม Authentication Middleware
+            \Illuminate\Routing\Middleware\SubstituteBindings::class, 
         ]);
 
-        // ✅ ใช้ alias() สำหรับ Middleware ที่กำหนดเอง
+        
         $middleware->alias([
-            'personnel' => \App\Http\Middleware\PersonnelMiddleware::class, // ✅ เปลี่ยนเป็นตัวพิมพ์เล็ก
+            'personnel' => \App\Http\Middleware\PersonnelMiddleware::class, 
         ]);
 
     })

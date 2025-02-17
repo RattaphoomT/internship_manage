@@ -33,11 +33,9 @@ class LoginController extends Controller
                     return redirect()->route('personnel.index')
                         ->with('success', 'เข้าสู่ระบบสำเร็จ ยินดีต้อนรับ '. $user->nick_name);
                 case 2:
-                    return redirect()->route('personnel.index')
-                        ->with('success', 'เข้าสู่ระบบสำเร็จ ยินดีต้อนรับ '. $user->nick_name);
+                    
                 case 3:
-                    return redirect()->route('personnel.index')
-                        ->with('success', 'เข้าสู่ระบบสำเร็จ ยินดีต้อนรับ '. $user->nick_name);
+                    
                 default:
                     return redirect()->route('login.form')->with('error', 'เข้าสู่ระบบไม่สำเร็จ');
             }

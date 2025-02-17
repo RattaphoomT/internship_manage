@@ -12,6 +12,8 @@ class PersonnelMiddleware
     public function handle(Request $request, Closure $next)
     {
 
+        dd($request->user());
+
         if (Auth::check() && Auth::user()->user_role_id == 1) {
             return $next($request);
         }
