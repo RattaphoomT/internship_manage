@@ -144,9 +144,9 @@
             </li> --}}
 
             {{-- staff menu --}}
-            <li class="menu-item {{ request()->routeIs('personnel') ? 'active' : '' }} ">
+            <li class="menu-item {{ request()->routeIs('personnel.index') ? 'active' : '' }} ">
                 <a
-                  href="{{ route('personnel') }}"
+                  href="{{ route('personnel.index') }}"
                   class="menu-link">
                   <i class="menu-icon tf-icons bx bx-tachometer"></i>
                   <div class="text-truncate" data-i18n="ภาพรวมของระบบ">ภาพรวมของระบบ</div>
@@ -373,8 +373,8 @@
 
                 <li class="nav-item lh-1 me-4">
                     <div class="flex-grow-1 divider text-end">
-                        <h6 class="mb-0">นายรัฐภูมิ ธนาโชติอัครโภคิน</h6>
-                        <small class="text-muted text-end">พนักงาน</small>
+                        <h6 class="mb-0">{{ Auth::user()->Name }} {{ Auth::user()->Lastname }}</h6>
+                        <small class="text-muted text-end">{{ Auth::user()->userRole->user_role_name }}</small>
                     </div>
                 </li>
 
@@ -431,11 +431,19 @@
                     <li>
                       <div class="dropdown-divider my-1"></div>
                     </li>
+
                     <li>
-                      <a class="dropdown-item" href="javascript:void(0);">
-                        <i class="bx bx-power-off bx-md me-3 text-danger"></i><span class="text-danger">ออกจากระบบ</span>
+
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                      </form>
+
+                      <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                          <i class="bx bx-power-off bx-md me-3 text-danger"></i><span class="text-danger">ออกจากระบบ</span>
                       </a>
+
                     </li>
+
                   </ul>
                 </li>
                 <!--/ User -->
@@ -527,5 +535,45 @@
 
     <!-- Place this tag before closing body tag for github widget button. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    {{-- SweetAlert --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          @if(session('success'))
+              Swal.fire({
+                  icon: 'success',
+                  title: 'สำเร็จ!',
+                  text: '{{ session("success") }}',
+                  confirmButtonColor: '#3085d6',
+                  confirmButtonText: 'ตกลง'
+              });
+          @endif
+  
+          @if(session('error'))
+              Swal.fire({
+                  icon: 'error',
+                  title: 'เกิดข้อผิดพลาด',
+                  text: '{{ session("error") }}',
+                  confirmButtonColor: '#d33',
+                  confirmButtonText: 'ตกลง'
+              });
+          @endif
+  
+          @if($errors->any())
+              Swal.fire({
+                  icon: 'warning',
+                  title: 'ไม่พบข้อมูล!',
+                  text: '{{ $errors->first() }}',
+                  confirmButtonColor: '#f39c12',
+                  confirmButtonText: 'ตกลง'
+              });
+          @endif
+      });
+    </script>
+
+  @yield('scripts')
+
   </body>
 </html>

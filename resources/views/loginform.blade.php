@@ -156,12 +156,12 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
-      <script>
+    <script>
         document.addEventListener("DOMContentLoaded", function() {
             @if(session('success'))
                 Swal.fire({
                     icon: 'success',
-                    title: 'เข้าสู่ระบบสำเร็จ!',
+                    title: 'สำเร็จ!',
                     text: '{{ session("success") }}',
                     confirmButtonColor: '#3085d6',
                     confirmButtonText: 'ตกลง'

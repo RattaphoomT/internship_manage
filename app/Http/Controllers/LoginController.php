@@ -31,7 +31,7 @@ class LoginController extends Controller
             switch ($user->user_role_id) { 
                 case 1:
                     return redirect()->route('personnel.index')
-                        ->with('success', 'เข้าสู่ระบบสำเร็จ ยินดีต้อนรับ '. $user->nick_name);
+                        ->with('success', 'ยินดีต้อนรับคุณ '. $user->Name);
                 case 2:
                     
                 case 3:
