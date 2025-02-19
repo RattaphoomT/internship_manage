@@ -10,13 +10,16 @@ class Document extends Model
     use HasFactory;
 
     protected $table = 'document';
-    protected $primaryKey = 'DocId';
+    protected $primaryKey = 'Doc_id';
     public $timestamps = true;
 
-    protected $fillable = ['FPath', 'FPath2', 'internship_InternshipCode'];
+    protected $fillable = [
+        'Doc_CP_intern01', 'Doc_CP_intern02', 'Doc_CP_intern03', 
+        'Doc_CP_intern04', 'Doc_5', 'Doc_6', 'Doc_7', 'Doc_Referral', 'Doc_Report'
+    ];
 
-    public function internship()
+    public function internships()
     {
-        return $this->belongsTo(Internship::class, 'internship_InternshipCode', 'InternshipCode');
+        return $this->hasMany(Internship::class, 'document_Doc_id');
     }
 }

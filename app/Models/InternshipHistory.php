@@ -10,25 +10,25 @@ class InternshipHistory extends Model
     use HasFactory;
 
     protected $table = 'internshiphistory';
-    protected $primaryKey = 'InternshipHistoryId';
+    protected $primaryKey = 'Internship_History_id';
     public $timestamps = true;
 
     protected $fillable = [
-        'Datetime', 'Detail', 'user_Stu_id', 'internshipstatus_StatusCode', 'internship_InternshipCode'
+        'Internship_History_id','Detail', 'user_user_id', 'internship_Internship_id', 'internshipstatus_Internship_Status_id'
     ];
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'user_Stu_id', 'Stu_id');
+        return $this->belongsTo(User::class, 'user_user_id');
     }
 
     public function internship()
     {
-        return $this->belongsTo(Internship::class, 'internship_InternshipCode', 'InternshipCode');
+        return $this->belongsTo(Internship::class, 'internship_Internship_id');
     }
 
-    public function status()
+    public function internshipStatus()
     {
-        return $this->belongsTo(InternshipStatus::class, 'internshipstatus_StatusCode', 'StatusCode');
+        return $this->belongsTo(InternshipStatus::class, 'internshipstatus_Internship_Status_id');
     }
 }

@@ -10,36 +10,36 @@ class Internship extends Model
     use HasFactory;
 
     protected $table = 'internship';
-    protected $primaryKey = 'InternshipCode';
+    protected $primaryKey = 'Internship_id';
     public $timestamps = true;
 
     protected $fillable = [
-        'CompanyId', 'DateSubmit', 'StartDate', 'EndDate', 'Position', 
-        'DeliveryOption', 'user_Stu_id', 'company_CompanyId', 'internshipstatus_StatusCode'
+        'StartDate', 'EndDate', 'Position', 'DeliveryOption', 'Delivery_Date',
+        'company_CompanyId', 'internshipstatus_Internship_Status_id', 'user_user_id', 'document_Doc_id'
     ];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'user_Stu_id', 'Stu_id');
-    }
 
     public function company()
     {
-        return $this->belongsTo(Company::class, 'company_CompanyId', 'CompanyId');
+        return $this->belongsTo(Company::class, 'company_CompanyId');
     }
 
-    public function status()
+    public function internshipStatus()
     {
-        return $this->belongsTo(InternshipStatus::class, 'internshipstatus_StatusCode', 'StatusCode');
+        return $this->belongsTo(InternshipStatus::class, 'internshipstatus_Internship_Status_id');
     }
 
-    public function documents()
+    public function user()
     {
-        return $this->hasMany(Document::class, 'internship_InternshipCode', 'InternshipCode');
+        return $this->belongsTo(User::class, 'user_user_id');
     }
 
-    public function history()
+    public function document()
     {
-        return $this->hasMany(InternshipHistory::class, 'internship_InternshipCode', 'InternshipCode');
+        return $this->belongsTo(Document::class, 'document_Doc_id');
+    }
+
+    public function internshipHistories()
+    {
+        return $this->hasMany(InternshipHistory::class, 'internship_Internship_id');
     }
 }

@@ -14,11 +14,12 @@ class Company extends Model
     public $timestamps = true;
 
     protected $fillable = [
-        'CompanyName', 'Address', 'Comlink', 'HRname', 'HRCS', 'is_active'
+        'Company_Name', 'Company_Adress', 'Company_detail', 'Comlink', 
+        'HRname', 'HR_contact'
     ];
 
     public function internships()
     {
-        return $this->hasMany(Internship::class, 'company_CompanyId', 'CompanyId');
+        return $this->hasMany(Internship::class, 'company_CompanyId');
     }
 }

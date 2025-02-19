@@ -25,6 +25,8 @@ Route::middleware(['personnel'])->group(function () {
 
 Route::get('/pdf', [PDFController::class, 'generatePDF'])->name('pdf.generate');
 
+
+
 // Route::get('/create-mock-user', function () {
 //     $user = Users::create([
 //         'usernumber' => '643021335-2',
@@ -39,7 +41,7 @@ Route::get('/pdf', [PDFController::class, 'generatePDF'])->name('pdf.generate');
 //         'Address' => '123/4 หมู่ 5 กรุงเทพฯ',
 //         'Grade' => '3.50',
 //         'Email' => 'somchai@example.com',
-//         'Treatment' => 'ไม่มี',
+//         'Treatment' => 'ไม่มี',s
 //         'Skill' => 'PHP, Laravel',
 //         'Reward' => 'ชนะเลิศแข่งขันโปรแกรมมิ่ง',
 //         'password' => Hash::make('12345678'),
