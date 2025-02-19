@@ -15,6 +15,9 @@ Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
+
+
+//บุคลากร
 Route::middleware(['personnel'])->group(function () {
 
     Route::get('/personnel/index', function () {
@@ -23,29 +26,29 @@ Route::middleware(['personnel'])->group(function () {
 
 });
 
+
+
 Route::get('/pdf', [PDFController::class, 'generatePDF'])->name('pdf.generate');
 
 
 
 // Route::get('/create-mock-user', function () {
 //     $user = Users::create([
-//         'usernumber' => '643021335-2',
-//         'CurriculumID' => 1,
-//         'Name' => 'สมชาย',
-//         'Lastname' => 'ใจดี',
-//         'birthday' => '2002-08-30',
-//         'Tel' => '0999999999',
+//         'user_id' => 12345,
+//         'User_name' => '643021335-2',
+//         'First_name' => 'สมชาย',
+//         'Last_name' => 'ใจดี',
+//         'Birthday' => '2002-08-30',
+//         'Email' => 'somchai@example.com',
 //         'Ethnicity' => 'ไทย',
 //         'Nationality' => 'ไทย',
 //         'Religion' => 'พุทธ',
 //         'Address' => '123/4 หมู่ 5 กรุงเทพฯ',
-//         'Grade' => '3.50',
-//         'Email' => 'somchai@example.com',
-//         'Treatment' => 'ไม่มี',s
-//         'Skill' => 'PHP, Laravel',
-//         'Reward' => 'ชนะเลิศแข่งขันโปรแกรมมิ่ง',
+//         'Grade' => 3.50,
+//         'Year' => 3,
+//         'Treatment' => 'บัตรทอง',
 //         'password' => Hash::make('12345678'),
-//         'user_role_id' => 1,
+//         'user_role_iduser_role' => 1, 
 //     ]);
 
 //     return response()->json(['message' => 'User created!', 'user' => $user]);

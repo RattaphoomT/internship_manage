@@ -373,7 +373,7 @@
 
                 <li class="nav-item lh-1 me-4">
                     <div class="flex-grow-1 divider text-end">
-                        <h6 class="mb-0">{{ Auth::user()->Name }} {{ Auth::user()->Lastname }}</h6>
+                        <h6 class="mb-0">{{ Auth::user()->First_name }} {{ Auth::user()->Last_name }}</h6>
                         <small class="text-muted text-end">{{ Auth::user()->userRole->user_role_name }}</small>
                     </div>
                 </li>

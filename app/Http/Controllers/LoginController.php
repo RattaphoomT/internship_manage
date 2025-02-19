@@ -17,21 +17,21 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'usernumber'   => 'required',
+            'User_name'   => 'required',
             'password' => 'required',
         ]);
 
         // ค้นหาผู้ใช้จาก Stu_id
-        $user = Users::where('usernumber', $request->usernumber)->first();
+        $user = Users::where('User_name', $request->User_name)->first();
 
         if ($user && Hash::check($request->password, $user->password)) {
             Auth::login($user);
 
-            // ตรวจสอบ user_role_id
-            switch ($user->user_role_id) { 
+            // ตรวจสอบ user_role_iduser_role
+            switch ($user->user_role_iduser_role) { 
                 case 1:
                     return redirect()->route('personnel.index')
-                        ->with('success', 'ยินดีต้อนรับคุณ '. $user->Name);
+                        ->with('success', 'ยินดีต้อนรับคุณ '. $user->First_name);
                 case 2:
                     
                 case 3:

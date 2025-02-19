@@ -12,7 +12,7 @@ class PersonnelMiddleware
     public function handle(Request $request, Closure $next)
     {
 
-        if (Auth::check() && Auth::user()->user_role_id == 1) {
+        if (Auth::check() && Auth::user()->user_role_iduser_role == 1) {
             return $next($request);
         }
 
