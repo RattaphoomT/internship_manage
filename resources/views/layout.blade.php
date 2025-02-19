@@ -52,6 +52,10 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{ asset('assets/js/config.js') }}"></script>
+
+    <!-- DataTables CSS -->
+    <link href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+
   </head>
 
   <body style="font-family: 'IBM Plex Sans Thai', serif;">
@@ -153,9 +157,9 @@
                 </a>
             </li>
 
-            <li class="menu-item">
+            <li class="menu-item {{ request()->routeIs('ManageStudent') ? 'active' : '' }} ">
               <a
-                href="#"
+                href="{{ route('ManageStudent') }}"
                 class="menu-link">
                 <i class="menu-icon tf-icons bx bx-user"></i>
                 <div class="text-truncate" data-i18n="Chat">จัดการบัญชีนักศึกษา</div>
@@ -527,17 +531,28 @@
     <!-- endbuild -->
 
     <!-- Vendors JS -->
+    
 
     <!-- Main JS -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
 
     <!-- Page JS -->
+    
 
     <!-- Place this tag before closing body tag for github widget button. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
     {{-- SweetAlert --}}
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Include jQuery and DataTables JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
+
+    <!-- DataTables Bootstrap 5 Integration -->
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap5.min.js"></script>
 
     <script>
       document.addEventListener("DOMContentLoaded", function() {
@@ -571,6 +586,32 @@
               });
           @endif
       });
+    </script>
+
+    <script>
+      $(document).ready(function() {
+            $.fn.dataTable.ext.errMode = 'none';
+            let table = $('#basic-datatable').DataTable({
+                "lengthMenu": [
+                    [10, 20, 50, -1],
+                    [10, 20, 50, "ทั้งหมด"]
+                ],
+                "language": {
+                    "lengthMenu": "แสดง _MENU_ รายการ",
+                    "zeroRecords": "ไม่พบข้อมูล",
+                    "info": "แสดง _START_ ถึง _END_ จาก _TOTAL_ รายการ",
+                    "infoEmpty": "ไม่มีรายการที่แสดง",
+                    "infoFiltered": "(กรองจากทั้งหมด _MAX_ รายการ)",
+                    "search": "ค้นหา:",
+                    "paginate": {
+                        "first": "หน้าแรก",
+                        "last": "หน้าสุดท้าย",
+                        "next": "ถัดไป",
+                        "previous": "ก่อนหน้า"
+                    }
+                },
+            });
+        });
     </script>
 
   @yield('scripts')
