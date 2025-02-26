@@ -11,9 +11,9 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb breadcrumb-style1">
         <li class="breadcrumb-item">
-            <a href="javascript:void(0);">บุคลากร</a>
+            <a href="{{ route('personnel.index') }}">หน้าหลัก</a>
         </li>
-        <li class="breadcrumb-item">หน้าหลัก
+        <li class="breadcrumb-item">บุคลากร
         </li>
             <li class="breadcrumb-item active">จัดการบัญชีนักศึกษา</li>
         </ol>
@@ -26,7 +26,13 @@
 
     <!-- Hoverable Table rows -->
     <div class="card">
-        <h5 class="card-header">บัญชีนักศึกษาทั้งหมด</h5>
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">บัญชีนักศึกษาทั้งหมด</h5>
+            <div>
+                <a href="" type="button" class="btn btn-outline-success"><i class='bx bx-plus'></i> เพิ่มนักศึกษาด้วย Excel</a>
+                <a href="{{ route('personnel.CreateStudent') }}" type="button" class="btn btn-primary"><i class='bx bx-plus'></i> เพิ่มนักศึกษา</a>
+            </div>
+        </div>
         <div class="table-responsive text-nowrap p-5">
             <table class="table table-hover" id="basic-datatable">
               <thead>

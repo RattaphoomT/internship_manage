@@ -465,8 +465,10 @@
               <!-- Layout Demo -->
 
               @yield('breadcrumb')
-              @yield('Content')
 
+              <div class="content-wrapper">
+                  @yield('Content')
+              </div>
               
             </div>
             <!-- / Content -->
@@ -556,37 +558,61 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function() {
-          @if(session('success'))
-              Swal.fire({
-                  icon: 'success',
-                  title: 'สำเร็จ!',
-                  text: '{{ session("success") }}',
-                  confirmButtonColor: '#3085d6',
-                  confirmButtonText: 'ตกลง'
-              });
-          @endif
-  
-          @if(session('error'))
-              Swal.fire({
-                  icon: 'error',
-                  title: 'เกิดข้อผิดพลาด',
-                  text: '{{ session("error") }}',
-                  confirmButtonColor: '#d33',
-                  confirmButtonText: 'ตกลง'
-              });
-          @endif
-  
-          @if($errors->any())
-              Swal.fire({
-                  icon: 'warning',
-                  title: 'ไม่พบข้อมูล!',
-                  text: '{{ $errors->first() }}',
-                  confirmButtonColor: '#f39c12',
-                  confirmButtonText: 'ตกลง'
-              });
-          @endif
-      });
+            @if(session('success'))
+                Swal.fire({
+                    icon: 'success',
+                    title: 'สำเร็จ!',
+                    text: '{{ session("success") }}',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'ตกลง',
+                    customClass: {
+                        popup: 'swal2-custom',
+                        backdrop: 'swal2-backdrop-custom'
+                    },
+                    didOpen: () => {
+                        document.querySelector('.swal2-container').style.zIndex = '9999';
+                    }
+                });
+            @endif
+
+            @if(session('error'))
+                Swal.fire({
+                    icon: 'error',
+                    title: 'เกิดข้อผิดพลาด',
+                    text: '{{ session("error") }}',
+                    confirmButtonColor: '#d33',
+                    confirmButtonText: 'ตกลง',
+                    customClass: {
+                        popup: 'swal2-custom',
+                        backdrop: 'swal2-backdrop-custom'
+                    },
+                    didOpen: () => {
+                        document.querySelector('.swal2-container').style.zIndex = '9999';
+                    }
+                });
+            @endif
+
+            @if($errors->any())
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'ผิดพลาด!',
+                    text: '{{ $errors->first() }}',
+                    confirmButtonColor: '#f39c12',
+                    confirmButtonText: 'ตกลง',
+                    customClass: {
+                        popup: 'swal2-custom',
+                        backdrop: 'swal2-backdrop-custom'
+                    },
+                    didOpen: () => {
+                        document.querySelector('.swal2-container').style.zIndex = '9999';
+                    }
+                });
+            @endif
+        });
+
     </script>
+    
+    
 
     <script>
       $(document).ready(function() {

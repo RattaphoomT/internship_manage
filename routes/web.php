@@ -24,7 +24,14 @@ Route::middleware(['personnel'])->group(function () {
     Route::get('/personnel/index', function () {
         return view('index_personnel');
     })->name('personnel.index');
+    
     Route::get('/personnel/ManageStudent',[ManageStudentController::class,'index'])->name('ManageStudent');
+
+    Route::get('/personnel/CreateStudent', function () {
+        return view('CreatStudent');
+    })->name('personnel.CreateStudent');
+
+    Route::post('/personnel/CreateStudent/Create',[ManageStudentController::class,'create'])->name('CreateStudent');
 
 });
 
