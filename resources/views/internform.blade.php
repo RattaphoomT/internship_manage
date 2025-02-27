@@ -313,14 +313,14 @@
                                     
                                 </div>
     
+                                <div class="d-flex justify-content-center mt-6 mb-6">
+                                    <button type="submit" class="btn btn-primary w-50">ยืนยันการส่งเอกสารฝึกงาน</button>
+                                </div>
                         </div>
                     </div>
-    
+
                 </div>
     
-                <div class="d-flex justify-content-center mt-6 mb-6">
-                    <button type="submit" class="btn btn-primary w-50">ยืนยันการส่งเอกสารฝึกงาน</button>
-                </div>
             </div>
         </form>
         
