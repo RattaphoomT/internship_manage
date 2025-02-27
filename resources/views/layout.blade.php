@@ -270,8 +270,8 @@
             <!-- นักศึกษา -->
             <li class="menu-header small text-uppercase"><span class="menu-header-text">นักศึกษา</span></li>
             <!-- Cards -->
-            <li class="menu-item">
-              <a href="#" class="menu-link">
+            <li class="menu-item {{ request()->routeIs('student.index') ? 'active' : '' }}">
+              <a href="{{ route('student.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-time-five"></i>
                 <div class="text-truncate" data-i18n="Basic">ประวัติการสมัคร</div>
               </a>

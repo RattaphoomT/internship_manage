@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ManageStudentController;
+use App\Http\Controllers\internController;
 
 use App\Models\Users;
 
@@ -37,31 +38,20 @@ Route::middleware(['personnel'])->group(function () {
 
 
 
-Route::get('/pdf', [PDFController::class, 'generatePDF'])->name('pdf.generate');
+//นักศึกษา
+Route::middleware(['student'])->group(function () {
 
+    //เเสดงประวัติการสมัคร
+    Route::get('/student/index', function () {
+        return view('index_student');
+    })->name('student.index');
 
+    //เเบบฟอร์มการสมัคร
+    Route::get('/student/internshipform', function () {
+        return view('internform');
+    })->name('student.internshipform');
 
-// Route::get('/create-mock-user', function () {
-//     $user = Users::create([
-//         'user_id' => 12344,
-//         'User_name' => '643021335-5',
-//         'First_name' => 'รัฐภูมิ',
-//         'Last_name' => 'ธนาโชติอัครโภคิน',
-//         'Birthday' => '2002-08-30',
-//         'Email' => 'rattaphoom@kkumail.com',
-//         'Ethnicity' => 'ไทย',
-//         'Nationality' => 'ไทย',
-//         'Religion' => 'พุทธ',
-//         'Address' => '123/4 หมู่ 5 กรุงเทพฯ',
-//         'Grade' => 3.50,
-//         'Year' => 4,
-//         'Treatment' => 'บัตรทอง',
-//         'password' => Hash::make('12345678'),
-//         'user_role_iduser_role' => 2, 
-//     ]);
+    //บันทึกส่งเอกสารฝึกงาน
+    Route::post('/student/CreateInternship/Create',[internController::class,'create'])->name('CreateInternship');
 
-//     return response()->json(['message' => 'User created!', 'user' => $user]);
-// });
-
-
-
+});

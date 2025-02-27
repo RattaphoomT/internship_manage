@@ -33,7 +33,8 @@ class LoginController extends Controller
                     return redirect()->route('personnel.index')
                         ->with('success', 'ยินดีต้อนรับคุณ '. $user->First_name);
                 case 2:
-                    
+                    return redirect()->route('student.index')
+                        ->with('success', 'ยินดีต้อนรับคุณ '. $user->First_name);
                 case 3:
                     
                 default:
