@@ -30,7 +30,7 @@
             <h4 class="m-0">เเบบฟอร์มส่งเอกสารฝึกงาน</h4>
         </div>
 
-        <form action="{{ route('CreateInternship') }}" method="POST">
+        <form action="{{ route('CreateInternship') }}" method="POST" enctype="multipart/form-data" >
             @csrf
             <div class="row mt-6">
 
@@ -101,19 +101,19 @@
     
                             <hr>
 
-                            <input class="form-control" type="file" id="formFileMultiple" name="user_user_id"   value="{{ Auth::user()->user_id }}" hidden multiple required/>
-                            <input class="form-control" type="file" id="formFileMultiple" name="internshipstatus_Internship_Status_id"   value="2" hidden multiple required/>
+                            <input class="form-control" type="hidden" id="fuser_user_id" name="user_user_id"   value="{{ Auth::user()->user_id }}"  />
+                            <input class="form-control" type="hidden" id="internshipstatus_Internship_Status_id" name="internshipstatus_Internship_Status_id"   value="2"  />
     
                             <h5 class="mt-6">อัพโหลดเอกสารต่อไปนี้</h5>
                             <div class="container">
                                     <div class="mb-4 col-12 col-lg-6">
-                                        <label for="formFileMultiple1" class="form-label"><h6 class="m-0">CP-Intern02 - ประวัตินักศึกษา<code>*</code></h6></label>
-                                        <input class="form-control" type="file" id="formFileMultiple1" name="Doc_CP_intern02" multiple required/>
+                                        <label for="Doc_CP_intern02" class="form-label"><h6 class="m-0">CP-Intern02 - ประวัตินักศึกษา<code>*</code></h6></label>
+                                        <input class="form-control" type="file" id="Doc_CP_intern02" name="Doc_CP_intern02"  required/>
                                         <div class="form-text">ต้องเป็นไฟล์ PDF เท่านั้น</div>
                                     </div>
                                     <div class="mb-4 col-12 col-lg-6">
-                                        <label for="formFileMultiple2" class="form-label"><h6 class="m-0">CP-Intern03 - หนังสือยินยอมผู้ปกครอง<code>*</code></h6></label>
-                                        <input class="form-control" type="file" id="formFileMultiple2" name="Doc_CP_intern03" multiple required/>
+                                        <label for="Doc_CP_intern03" class="form-label"><h6 class="m-0">CP-Intern03 - หนังสือยินยอมผู้ปกครอง<code>*</code></h6></label>
+                                        <input class="form-control" type="file" id="Doc_CP_intern03" name="Doc_CP_intern03"  required/>
                                         <div class="form-text">ต้องเป็นไฟล์ PDF เท่านั้น</div>
                                     </div>
                             </div>
@@ -134,7 +134,7 @@
                                             <label class="form-label" for="basic-icon-default-firstname"><h6 class="m-0">ชื่อบริษัท<code>*</code></h6></label>
                                             <div class="input-group input-group-merge">
                                               <span class="input-group-text"><i class="bx bx-buildings"></i></span>
-                                              <input type="text" class="form-control" id="First_name"
+                                              <input type="text" class="form-control" id="Company_Name"
                                                 placeholder="ชื่อบริษัท" aria-label="ชื่อบริษัท" name="Company_Name" required>
                                             </div>
                                           </div>
@@ -143,7 +143,7 @@
                                             <label class="form-label" for="basic-icon-default-lastname"><h6 class="m-0">ลิ้งของบริษัท</h6></label>
                                             <div class="input-group input-group-merge">
                                               <span class="input-group-text"><i class="bx bx-link"></i></span>
-                                              <input type="text" class="form-control" id="Last_name"
+                                              <input type="text" class="form-control" id="Comlink"
                                                 placeholder="ลิ้งของบริษัท" aria-label="ลิ้งของบริษัท" name="Comlink">
                                             </div>
                                           </div>
@@ -156,8 +156,8 @@
                                             <label class="form-label" for="basic-icon-default-lastname"><h6 class="m-0">ตำเเหน่งที่สมัคร<code>*</code></h6></label>
                                             <div class="input-group input-group-merge">
                                               <span class="input-group-text"><i class="bx bx-coffee"></i></span>
-                                              <input type="text" class="form-control" id="Last_name"
-                                                placeholder="ตำเเหน่งที่สมัคร" aria-label="ตำเเหน่งที่สมัคร" name="Position">
+                                              <input type="text" class="form-control" id="Position"
+                                                placeholder="ตำเเหน่งที่สมัคร" aria-label="ตำเเหน่งที่สมัคร" name="Position" required>
                                             </div>
                                         </div>
         
@@ -165,8 +165,8 @@
                                             <label class="form-label" for="basic-icon-default-lastname"><h6 class="m-0">ชื่อผู้ประสานงาน/พี่เลี้ยง<code>*</code></h6></label>
                                             <div class="input-group input-group-merge">
                                               <span class="input-group-text"><i class="bx bx-user"></i></span>
-                                              <input type="text" class="form-control" id="Last_name"
-                                                placeholder="ชื่อผู้ประสานงาน/พี่เลี้ยง " aria-label="ชื่อผู้ประสานงาน/พี่เลี้ยง " name="HRname">
+                                              <input type="text" class="form-control" id="HRname"
+                                                placeholder="ชื่อผู้ประสานงาน/พี่เลี้ยง " aria-label="ชื่อผู้ประสานงาน/พี่เลี้ยง " name="HRname" required>
                                             </div>
                                         </div>
         
@@ -174,8 +174,8 @@
                                             <label class="form-label" for="basic-icon-default-lastname"><h6 class="m-0">เบอร์ผู้ประสานงาน/พี่เลี้ยง<code>*</code></h6></label>
                                             <div class="input-group input-group-merge">
                                               <span class="input-group-text"><i class="bx bx-phone-call"></i></span>
-                                              <input type="text" class="form-control" id="Last_name"
-                                                placeholder="เบอร์ผู้ประสานงาน/พี่เลี้ยง" aria-label="เบอร์ผู้ประสานงาน/พี่เลี้ยง" name="HR_contact">
+                                              <input type="text" class="form-control" id="HR_contact"
+                                                placeholder="เบอร์ผู้ประสานงาน/พี่เลี้ยง" aria-label="เบอร์ผู้ประสานงาน/พี่เลี้ยง" name="HR_contact" required>
                                             </div>
                                             <div class="form-text">หากไม่ทราบเบอร์พี่เลี้ยงให้ใส่เบอร์บริษัทเเทน</div>
                                         </div>
@@ -189,7 +189,7 @@
                                                 ><i class="bx bx-comment-detail"></i
                                               ></span>
                                               <textarea
-                                                id="basic-icon-default-message"
+                                                id="Company_detail"
                                                 class="form-control"
                                                 placeholder="รายละเอียดบริษัท"
                                                 name="Company_detail"
@@ -207,12 +207,12 @@
                                                 ><i class="bx bx-map-pin"></i
                                               ></span>
                                               <textarea
-                                                id="basic-icon-default-message"
+                                                id="Company_Adress"
                                                 class="form-control"
                                                 placeholder="ที่อยู่บริษัท/หน่วยงาน"
                                                 name="Company_Adress"
                                                 aria-label="ที่อยู่บริษัท/หน่วยงาน"
-                                                aria-describedby="basic-icon-default-message2"></textarea>
+                                                aria-describedby="basic-icon-default-message2" required></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -230,12 +230,12 @@
                                                 ></span>
                                                 <input
                                                 type="date"
-                                                id="html5-date-input"
+                                                id="StartDate"
                                                 class="form-control"
                                                 name="StartDate"
                                                 placeholder="ดด/วว/ปปป"
                                                 aria-label="ดด/วว/ปปป"
-                                                aria-describedby="basic-icon-default-company2" />
+                                                aria-describedby="basic-icon-default-company2" required />
                                             </div>
                                             <div class="form-text">หากบริษัทไม่ได้กำหนด ให้ใส่ตามกำหนดการมหาลัย</div>
                                         </div>
@@ -247,12 +247,12 @@
                                                 ></span>
                                                 <input
                                                 type="date"
-                                                id="html5-date-input"
+                                                id="EndDate"
                                                 class="form-control"
                                                 name="EndDate"
                                                 placeholder="ดด/วว/ปปป"
                                                 aria-label="ดด/วว/ปปป"
-                                                aria-describedby="basic-icon-default-company2" />
+                                                aria-describedby="basic-icon-default-company2" required/>
                                             </div>
                                         </div>
                                     </div>
@@ -266,7 +266,7 @@
                                                 ></span>
                                                 <input
                                                 type="date"
-                                                id="html5-date-input"
+                                                id="Delivery_Date"
                                                 class="form-control"
                                                 name="Delivery_Date"
                                                 placeholder="ดด/วว/ปปป"
@@ -277,8 +277,8 @@
                                         </div>
                                         <div class="col-md-6">
                                             <label for="exampleFormControlSelect1" class="form-label"><h6 class="m-0">การส่งเอกสาร<code>*</code></h6></label>
-                                            <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" name="DeliveryOption">
-                                                <option selected>รูปเเบบการส่งเอกสาร..</option>
+                                            <select class="form-select" id="DeliveryOption" aria-label="Default select example" name="DeliveryOption" required>
+                                                <option value="ไม่ได้ระบุ" selected>รูปเเบบการส่งเอกสาร..</option>
                                                 <option value="รับไปส่งเอง">รับไปส่งเอง</option>
                                                 <option value="วิทยาลัยฯ ส่งให้ตามที่อยู่บริษัท/หน่วยงาน ตามที่แจ้ง">วิทยาลัยฯ ส่งให้ตามที่อยู่บริษัท/หน่วยงาน ตามที่แจ้ง</option>
                                             </select>
@@ -287,27 +287,27 @@
     
                                     <div class="mb-4 col-12 col-lg-6">
                                         <label for="formFileMultiple3" class="form-label"><h6 class="m-0">CP-Intern01 - รายละเอียดบริษัท<code>*</code></h6></label>
-                                        <input class="form-control" type="file" id="formFileMultiple3" name="Doc_CP_intern01" multiple required/>
+                                        <input class="form-control" type="file" id="Doc_CP_intern01" name="Doc_CP_intern01"  required/>
                                         <div class="form-text">ต้องเป็นไฟล์ PDF เท่านั้น</div>
                                     </div>
                                     <div class="mb-4 col-12 col-lg-6">
                                         <label for="formFileMultiple4" class="form-label"><h6 class="m-0">Resume<code>*</code></h6></label>
-                                        <input class="form-control" type="file" id="formFileMultiple4" name="Doc_CP_intern04" multiple required/>
+                                        <input class="form-control" type="file" id="Doc_CP_intern04" name="Doc_CP_intern04"  required/>
                                         <div class="form-text">ต้องเป็นไฟล์ PDF เท่านั้น</div>
                                     </div>
                                     <div class="mb-4 col-12 col-lg-6">
                                         <label for="formFileMultiple5" class="form-label"><h6 class="m-0">เอกสารเพิ่มเติมที่บริษัทขอ-01</h6></label>
-                                        <input class="form-control" type="file" id="formFileMultiple5" name="Doc_5" multiple />
+                                        <input class="form-control" type="file" id="Doc_5" name="Doc_5"  />
                                         <div class="form-text">ต้องเป็นไฟล์ PDF เท่านั้น</div>
                                     </div>
                                     <div class="mb-4 col-12 col-lg-6">
-                                        <label for="formFileMultiple6" class="form-label"><h6 class="m-0">เอกสารเพิ่มเติมที่บริษัทขอ-01</h6></label>
-                                        <input class="form-control" type="file" id="formFileMultiple6" name="Doc_6" multiple />
+                                        <label for="formFileMultiple6" class="form-label"><h6 class="m-0">เอกสารเพิ่มเติมที่บริษัทขอ-02</h6></label>
+                                        <input class="form-control" type="file" id="Doc_6" name="Doc_6"  />
                                         <div class="form-text">ต้องเป็นไฟล์ PDF เท่านั้น</div>
                                     </div>
                                     <div class="mb-4 col-12 col-lg-6">
-                                        <label for="formFileMultiple7" class="form-label"><h6 class="m-0">เอกสารเพิ่มเติมที่บริษัทขอ-01</h6></label>
-                                        <input class="form-control" type="file" id="formFileMultiple7" name="Doc_7" multiple />
+                                        <label for="formFileMultiple7" class="form-label"><h6 class="m-0">เอกสารเพิ่มเติมที่บริษัทขอ-03</h6></label>
+                                        <input class="form-control" type="file" id="Doc_7" name="Doc_7"  />
                                         <div class="form-text">ต้องเป็นไฟล์ PDF เท่านั้น</div>
                                     </div>
                                     
