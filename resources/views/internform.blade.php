@@ -194,7 +194,7 @@
                                                 placeholder="รายละเอียดบริษัท"
                                                 name="Company_detail"
                                                 aria-label="รายละเอียดบริษัท"
-                                                aria-describedby="basic-icon-default-message2"></textarea>
+                                                aria-describedby="basic-icon-default-message2"></textarea>   
                                             </div>
                                         </div>
                                     </div>

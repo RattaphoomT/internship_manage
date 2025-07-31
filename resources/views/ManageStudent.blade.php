@@ -26,6 +26,7 @@
 
     <!-- Hoverable Table rows -->
     <div class="card">
+        
         <div class="card-header d-flex justify-content-between align-items-center">
             <h5 class="mb-0">บัญชีนักศึกษาทั้งหมด</h5>
             <div>
@@ -33,6 +34,7 @@
                 <a href="{{ route('personnel.CreateStudent') }}" type="button" class="btn btn-primary"><i class='bx bx-plus'></i> เพิ่มนักศึกษา</a>
             </div>
         </div>
+
         <div class="table-responsive text-nowrap p-5">
             <table class="table table-hover" id="basic-datatable">
               <thead>
