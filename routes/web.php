@@ -18,7 +18,6 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
 
-
 //บุคลากร
 Route::middleware(['personnel'])->group(function () {
 
