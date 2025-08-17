@@ -41,9 +41,13 @@ Route::middleware(['personnel'])->group(function () {
 Route::middleware(['student'])->group(function () {
 
     //เเสดงประวัติการสมัคร
-    Route::get('/student/index', function () {
-        return view('index_student');
-    })->name('student.index');
+    // Route::get('/student/index', function () {
+    //     return view('index_student');
+    // })->name('student.index');
+
+
+    Route::get('/student/index',[internController::class,'index'])->name('student.index');
+
 
     //เเบบฟอร์มการสมัคร
     Route::get('/student/internshipform', function () {
