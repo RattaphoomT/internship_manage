@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Internship;
 use App\Models\Company;
 use App\Models\Document;
+use App\Events\InternshipUpdated;
 
 class internController extends Controller
 {
@@ -125,7 +126,7 @@ class internController extends Controller
             'internshipstatus_Internship_Status_id' => $request->input('internshipstatus_Internship_Status_id'),
         ]);
         
-        
+        event(new InternshipUpdated($internship));
 
         return redirect()->route('student.internshipform')->with('success', "ส่งเอกสารฝึกงานสำเร็จ");
     }

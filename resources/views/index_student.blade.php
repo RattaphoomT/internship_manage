@@ -34,17 +34,18 @@
         <div class="row mt-6 d-flex justify-content-center">
 
 
+        <div id="internship-list">
+            
             @foreach($internships as $internship)
-
-                <div class="col-md-12">
+                <div class="col-md-12 internship-card mb-4" id="internship-{{ $internship->id }}">
                     <div class="card">
                         <div class="d-flex justify-content-between">
-                            <h5 class="card-header">{{ $internship->company->Company_Name }}</h5>
+                            <h5 class="card-header"><span class="bx bx-buildings"></span> {{ $internship->company->Company_Name }}</h5>
                             <p class="card-header text-secondary">{{ $internship->created_at }}</p>
                         </div>
                         <div class="card-body">
                             <h5 class="mb-1">รายละเอียดบริษัท</h5>
-                            <p class="w-80 break-words" style="text-align: justify">{{ $internship->company->Company_detail }}</p>
+                            <p class="w-75 break-words" style="text-align: justify">{{ $internship->company->Company_detail }}</p>
                             <div class="d-flex justify-content-between">
                                 <h6>ตำเเหน่ง : {{ $internship->Position }}</h6>
                                 <h6 class="text-success"><span class="bx bx-bullseye bx-flashing "></span>{{ $internship->internshipStatus->StatusName }}</h6>
@@ -52,11 +53,52 @@
                         </div>
                     </div>
                 </div>
-
             @endforeach
 
         </div>
-        
+
+
+        </div>
+
     </div>
     
+@endsection
+
+@section('scripts')
+    
+    <script>
+            window.Echo.channel('internships')
+                .listen('.internship.updated', (e) => {
+                    console.log("Realtime data:", e); // 👈 ทดสอบว่ามาไหม
+
+                    const data = e.internship;
+
+                    const cardHtml = `
+                        <div class="col-md-12 internship-card mb-4" id="internship-${data.id}">
+                            <div class="card">
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="card-header"><span class="bx bx-buildings"></span> ${data.company.Company_Name}</h5>
+                                    <p class="card-header text-secondary">${data.created_at}</p>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="mb-1">รายละเอียดบริษัท</h5>
+                                    <p class="w-75 break-words" style="text-align: justify">${data.company.Company_detail}</p>
+                                    <div class="d-flex justify-content-between">
+                                        <h6>ตำเเหน่ง : ${data.Position}</h6>
+                                        <h6 class="text-success"><span class="bx bx-bullseye bx-flashing "></span>${data.internship_status.StatusName}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+                    const existing = document.getElementById(`internship-${data.id}`);
+                    if (existing) {
+                        existing.outerHTML = cardHtml;
+                    } else {
+                        document.getElementById('internship-list').insertAdjacentHTML('afterbegin', cardHtml);
+                    }
+                });
+    </script>
+
 @endsection
