@@ -67,9 +67,11 @@
 @section('scripts')
     
     <script>
+
+            // subscribe channel
             window.Echo.channel('internships')
-                .listen('.internship.updated', (e) => {
-                    console.log("Realtime data:", e); // 👈 ทดสอบว่ามาไหม
+                .listen('.internship.updated', (e) => { // ต้องมี dot (.) ข้างหน้า event name
+                    console.log("Realtime data:", e); // ตรวจสอบข้อมูลที่ได้รับ
 
                     const data = e.internship;
 
@@ -85,13 +87,14 @@
                                     <p class="w-75 break-words" style="text-align: justify">${data.company.Company_detail}</p>
                                     <div class="d-flex justify-content-between">
                                         <h6>ตำเเหน่ง : ${data.Position}</h6>
-                                        <h6 class="text-success"><span class="bx bx-bullseye bx-flashing "></span>${data.internship_status.StatusName}</h6>
+                                        <h6 class="text-success"><span class="bx bx-bullseye bx-flashing"></span>${data.internship_status.StatusName}</h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     `;
 
+                    // อัปเดตหรือเพิ่ม card
                     const existing = document.getElementById(`internship-${data.id}`);
                     if (existing) {
                         existing.outerHTML = cardHtml;
@@ -99,6 +102,8 @@
                         document.getElementById('internship-list').insertAdjacentHTML('afterbegin', cardHtml);
                     }
                 });
+        
     </script>
+
 
 @endsection

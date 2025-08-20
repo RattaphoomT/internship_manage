@@ -56,6 +56,8 @@
     <!-- DataTables CSS -->
     <link href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.min.css" rel="stylesheet">
 
+    @vite(['resources/css/app.css'])
+
   </head>
 
   <body style="font-family: 'IBM Plex Sans Thai', serif;">
@@ -639,6 +641,8 @@
             });
         });
     </script>
+
+    @vite(['resources/js/app.js'])
 
   @yield('scripts')
 
