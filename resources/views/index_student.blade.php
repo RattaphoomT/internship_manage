@@ -67,7 +67,7 @@
 @section('scripts')
     
     <script>
-
+        
             // subscribe channel
             window.Echo.channel('internships')
                 .listen('.internship.updated', (e) => { // ต้องมี dot (.) ข้างหน้า event name
