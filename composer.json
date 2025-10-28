@@ -10,7 +10,6 @@
         "illuminate/session": "*",
         "laravel/framework": "^11.31",
         "laravel/tinker": "^2.9",
-        "pusher/pusher-php-server": "^7.2",
         "realrashid/sweet-alert": "*",
         "tecnickcom/tcpdf": "^6.8"
     },
