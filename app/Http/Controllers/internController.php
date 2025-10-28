@@ -10,18 +10,6 @@ use App\Models\Document;
 
 class internController extends Controller
 {
-
-
-    public function index()
-    {
-        // ดึงข้อมูลการฝึกงานทั้งหมด
-        $internships = Internship::with(['company', 'document'])->get();
-
-        // ส่งข้อมูลไปที่ view
-        return view('index_student', compact('internships'));
-    }
-
-
     public function create(Request $request)
     {
         $request->validate([

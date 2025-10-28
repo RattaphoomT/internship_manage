@@ -33,27 +33,14 @@
 
         <div class="row mt-6 d-flex justify-content-center">
 
-
-            @foreach($internships as $internship)
-
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="d-flex justify-content-between">
-                            <h5 class="card-header">{{ $internship->company->Company_Name }}</h5>
-                            <p class="card-header text-secondary">{{ $internship->created_at }}</p>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="mb-1">รายละเอียดบริษัท</h5>
-                            <p class="w-80 break-words" style="text-align: justify">{{ $internship->company->Company_detail }}</p>
-                            <div class="d-flex justify-content-between">
-                                <h6>ตำเเหน่ง : {{ $internship->Position }}</h6>
-                                <h6 class="text-success"><span class="bx bx-bullseye bx-flashing "></span>{{ $internship->internshipStatus->StatusName }}</h6>
-                            </div>
-                        </div>
+            <div class="col-md-12">
+                <div class="card">
+                    <h5 class="card-header">บริษัท ชิบหายการช่าง จำกัด</h5>
+                    <div class="card-body">
+                        <h5>asjkghdjkhasjk</h5>
                     </div>
                 </div>
-
-            @endforeach
+            </div>
 
         </div>
         
